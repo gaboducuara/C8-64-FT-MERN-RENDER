@@ -1,6 +1,7 @@
 const { count } = require('console');
 const cors = require('cors');
 var path = require('path');
+const env = require('./.env')
 var express = require('express')
 const mongoose = require('mongoose');
 const app = express();
@@ -10,7 +11,8 @@ require('dotenv').config();
 
 const routes = require('./routes/routes');
 
-//mongodb  
+mongoose.set('strictQuery', true);
+//mongodb
 mongoose.connect(process.env.MONGO_URL,
 {
     useNewUrlParser: true,
